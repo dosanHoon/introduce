@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Transition } from "./Components/Transition";
 
@@ -7,20 +6,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Transition>
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
+        <Transition from="left">
+          <h1>자기 소개</h1>
         </Transition>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Transition from="right">
+          <h1>시작 합니다.</h1>
+        </Transition>
       </header>
     </div>
   );
