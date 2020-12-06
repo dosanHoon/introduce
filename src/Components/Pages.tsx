@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface PropsTypes {
   children: Element;
 }
-export const Pages: React.FC = ({ children }) => {
+export const Pages: React.FC<any> = ({ children }) => {
   const [p, setP] = React.useState(0);
 
   const nextPage = () =>
@@ -35,10 +35,18 @@ export const Pages: React.FC = ({ children }) => {
     };
   }, []);
   console.log("p", p);
-  return (children as any)[p];
+  return children;
 };
 
-export const Page = styled.div<{ background?: string }>`
+export const Page = styled.div<{ background?: string; fullPage?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  ${(props) => {
+    if (props.fullPage) {
+      return `height:${window.innerHeight}px`;
+    }
+    return `height: 100%;`
+  }}
 `;
